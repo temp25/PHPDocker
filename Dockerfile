@@ -3,7 +3,7 @@ MAINTAINER tom@tomfern.com
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY start-apache /usr/local/bin
 RUN a2enmod rewrite
-RUN apt-get install libonig2 libonig-dev && gem install oniguruma
+RUN apt-get update && apt-get install -y libonig2 libonig-dev && gem install oniguruma
 RUN apt-get update && apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev oniguruma-devel \
 		libpq-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
